@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lets_shop_app/screens/home_screen.dart';
+import 'package:lets_shop_app/screens/update_product_Screen.dart';
 
 void main() {
   runApp(const LetsShopApp());
@@ -12,8 +13,11 @@ class LetsShopApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-
-      home: const HomeScreen(),
+      initialRoute: HomeScreen.id,
+      routes: {
+        HomeScreen.id: (context) => HomeScreen(),
+        UpdateProductScreen.id: (context) => UpdateProductScreen(),
+      },
     );
   }
 }
