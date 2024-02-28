@@ -3,14 +3,15 @@ import 'package:lets_shop_app/models/product_model.dart';
 
 class AllProductsService {
   Future<List<ProductModel>> getAllProducts() async {
-  List<dynamic> data = await Api().get(url: 'https://fakestoreapi.com/products');
-    List<ProductModel> productsList = [];
+    List<dynamic> data =
+        await Api().get(url: 'https://fakestoreapi.com/products');
 
-    for (var product in data) {
-      ProductModel productModel = ProductModel.fromJson(product);
-      productsList.add(productModel);
+    List<ProductModel> productsList = [];
+    for (int i = 0; i < data.length; i++) {
+      productsList.add(
+        ProductModel.fromJson(data[i]),
+      );
     }
-    print(productsList);
     return productsList;
   }
 }

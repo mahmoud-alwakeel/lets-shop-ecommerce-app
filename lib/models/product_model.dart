@@ -1,11 +1,11 @@
 class ProductModel {
   final int id;
   final String title;
-  final double price;
+  final num price;
   final String description;
   final String category;
   final String image;
-  final RatingModel ratingModel;
+  final RatingModel? ratingModel;
 
   ProductModel(
       {required this.id,
@@ -24,13 +24,17 @@ class ProductModel {
       description: map['description'],
       category: map['category'],
       image: map['image'],
-      ratingModel: RatingModel.fromJson(map['rating']),
+      ratingModel: map['rating'] == null
+          ? null
+          : RatingModel.fromJson(
+              map['rating'],
+            ),
     );
   }
 }
 
 class RatingModel {
-  final double rate;
+  final dynamic rate;
   final int count;
 
   RatingModel({required this.rate, required this.count});
