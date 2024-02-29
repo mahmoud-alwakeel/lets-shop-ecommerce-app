@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
@@ -55,6 +56,7 @@ class Api {
     if (response.statusCode == 200) {
       Map<String, dynamic> data = jsonDecode(response.body);
       print(data);
+      //log(data.toString());
       return data;
     } else {
       throw Exception(

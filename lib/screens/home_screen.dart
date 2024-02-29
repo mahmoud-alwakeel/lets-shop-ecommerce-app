@@ -44,6 +44,7 @@ class HomeScreen extends StatelessWidget {
                     return CustomCard(productModel: products[index],);
                   });
             } else if (snapShot.hasError) {
+              print(snapShot.error);
               return const Center(child: Text('error'));
             } else {
               return const Center(child: CircularProgressIndicator());
